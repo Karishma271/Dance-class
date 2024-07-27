@@ -1,0 +1,10 @@
+extends layouts/layout
+
+block content
+  h2 Dance Class Videos
+  ul
+    each video in videos
+      li
+        a(href=`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`, target='_blank')
+          img(src=`https://img.youtube.com/vi/${video.snippet.resourceId.videoId}/maxresdefault.jpg`, alt=video.snippet.title)
+          p= video.snippet.title

@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='./css/styles.css')
+    script(src='/js/scripts.js')
+  body
+    header
+      h1 Feel Dance Academy
+      nav
+        ul
+          li: a(href='/') Home
+          li: a(href='/about') About
+          li: a(href='/contact') Contact
+          li: a(href='/videos') Videos
+    block content
+    footer
+      p &copy; 2024 FDA
