@@ -1,56 +1,310 @@
+/* Global Styles */
 body {
   font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
 }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 1rem;
-}
-
-nav ul li a {
-  color: white;
+a {
   text-decoration: none;
+  color: #007bff;
 }
 
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header, footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+header a, footer a {
+  color: #ffffff;
+}
+
+header a:hover, footer a:hover {
+  color: #dcdcdc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #dcdcdc;
+}
+
+/* Footer Styles */
 footer {
-  background-color: #333;
-  color: white;
   text-align: center;
-  padding: 1rem;
-  position: fixed;
-  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Carousel Styles */
+.carousel {
+  margin-bottom: 20px;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 500px;
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+input, textarea {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
   width: 100%;
 }
 
-.class, .instructor, .testimonial, .gallery, .video {
-  margin: 2rem 0;
+input:focus, textarea:focus {
+  border-color: #80bdff;
+  outline: none;
 }
 
-.class img, .instructor img, .gallery img, .video img {
-  max-width: 100%;
-  height: auto;
+/* Buttons */
+.btn {
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-link {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+  color: #007bff;
+}
+
+.page-link:hover {
+  background-color: #f8f9fa;
+}
+
+/* Map Styles */
+#map-container {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+}
+
+/* Style the video grid container */
+.video-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ensure the grid system works well */
+.video-grid-container .row {
+  margin: 0;
+}
+
+/* Style each video card */
+.card {
+  border: 1px solid #ddd;
   border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 400px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
 }
 
-.video img {
-  cursor: pointer;
-  transition: opacity 0.3s;
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Crop the image to fit the box */
 }
 
-.video img:hover {
-  opacity: 0.8;
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out title and button */
+}
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 15px; /* Space between title and button */
+}
+
+.text-center {
+  text-align: center; /* Center the button */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Style the pagination controls */
+ul.pagination {
+  justify-content: center;
+}
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li a {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+ul.pagination li.active a {
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+ul.pagination li a:hover {
+  background-color: #f1f1f1;
+}
+
+ul.pagination li.disabled a {
+  color: #6c757d;
+  pointer-events: none;
+}
+
+
+/* Ensure the form container is centered */
+.contact-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  padding: 1rem; /* Padding around the container */
+}
+
+/* Style for the contact form */
+.contact-form {
+  background: #f8f9fa; /* Light background color */
+  padding: 2rem; /* Padding inside the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 600px; /* Max width of the form */
+  width: 100%; /* Full width within max-width */
+}
+
+/* Style for form groups */
+.form-group {
+  margin-bottom: 1rem; /* Spacing between form elements */
+}
+
+/* Style for labels */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem; /* Spacing below the label */
+  font-weight: bold; /* Bold labels */
+}
+
+/* Style for form controls */
+.form-control {
+  width: 100%; /* Full width of the form control */
+  padding: 0.5rem; /* Padding inside the form control */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners for form controls */
+}
+
+/* Style for submit button */
+.btn-primary {
+  background-color: #007bff; /* Primary button color */
+  color: white; /* Text color for button */
+  border: none; /* Remove default border */
+  padding: 0.75rem 1.25rem; /* Padding inside the button */
+  font-size: 1rem; /* Font size for button text */
+  border-radius: 4px; /* Rounded corners for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Style for error messages */
+.error-message {
+  color: red; /* Red color for error messages */
+  margin-top: 0.5rem; /* Spacing above error messages */
 }

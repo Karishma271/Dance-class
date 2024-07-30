@@ -1,36 +1,48 @@
-require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const path = require('path');
+const connectDB = require('./db'); // Assuming you have a database connection file
+const contactRoutes = require('./routes/contact');
+const aboutRoutes = require('./routes/about');
+const indexRoutes = require('./routes/index');
+const videosRoutes = require('./routes/videos');
+
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// MongoDB Connection
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('Failed to connect to MongoDB:', err));
+// Middleware for parsing request bodies
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Connect to Database
+connectDB(); // Assuming you have a connectDB function
 
 // Set view engine to Pug
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware to serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }));
+// Debug logging for routes
+console.log('Registering routes');
 
 // Routes
-const indexRouter = require('./routes/index');
-const aboutRouter = require('./routes/about');
-const contactRouter = require('./routes/contact');
-const videosRouter = require('./routes/videos');
+app.use('/', indexRoutes);
+console.log('Registered / route');
+app.use('/about', aboutRoutes);
+console.log('Registered /about route');
+app.use('/contact', contactRoutes);
+console.log('Registered /contact route');
+app.use('/videos', videosRoutes);
+console.log('Registered /videos route');
 
-app.use('/', indexRouter);
-app.use('/about', aboutRouter);
-app.use('/contact', contactRouter);
-app.use('/videos', videosRouter);
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Error Handling for undefined routes
+app.use((req, res) => {
+  res.status(404).send('Page not found');
 });
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

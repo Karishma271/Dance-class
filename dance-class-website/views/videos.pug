@@ -1,10 +1,38 @@
-extends layouts/layout
+extends layout
 
 block content
-  h2 Dance Class Videos
-  ul
-    each video in videos
-      li
-        a(href=`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`, target='_blank')
-          img(src=`https://img.youtube.com/vi/${video.snippet.resourceId.videoId}/maxresdefault.jpg`, alt=video.snippet.title)
-          p= video.snippet.title
+  h1 Videos
+
+  if videos.length > 0
+    .container.my-4
+      .row
+        each video in videos
+          .col-md-3.mb-4
+            .card
+              a(href=`https://www.youtube.com/watch?v=${video.id.videoId}`, target="_blank")
+                .card-img-top
+                  img(src=`https://img.youtube.com/vi/${video.id.videoId}/hqdefault.jpg`, alt=video.snippet.title)
+              .card-body
+                h5.card-title #{video.snippet.title}
+
+    // Pagination controls
+    nav.mt-4
+      ul.pagination.justify-content-center
+        // Previous button
+        li.page-item(class=page === 1 ? 'disabled' : '')
+          a.page-link(href=`/videos?page=${page - 1}`) Previous
+
+        // Pagination numbers
+        - let startPage = Math.max(1, page - 5)
+        - let endPage = Math.min(startPage + 10, totalPages)
+        each pageNum in Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i)
+          li.page-item(class=page === pageNum ? 'active' : '')
+            a.page-link(href=`/videos?page=${pageNum}`) #{pageNum}
+
+        // Next button
+        li.page-item(class=page === totalPages ? 'disabled' : '')
+          a.page-link(href=`/videos?page=${page + 1}`) Next
+
+  else
+    p No videos found
+    p Please check back later for new content.
