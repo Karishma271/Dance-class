@@ -1,46 +1,79 @@
 /* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #333;
-  background-color: #f8f9fa;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
 }
 
 a {
   text-decoration: none;
-  color: #007bff;
+  color: #d4af37;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #b89726;
   text-decoration: underline;
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-header, footer {
+/* Header styling */
+header {
   background-color: #343a40;
-  color: #ffffff;
+  color: #fff;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+header nav {
+  display: flex;
+  gap: 15px;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+header nav a:hover {
+  color: #ccc;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
   padding: 20px 0;
 }
 
-header a, footer a {
-  color: #ffffff;
+footer a {
+  color: #fff;
 }
 
-header a:hover, footer a:hover {
-  color: #dcdcdc;
+footer a:hover {
+  color: #d4af37;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 p {
@@ -53,26 +86,17 @@ p {
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
-  color: #ffffff;
+  font-size: 1.75rem;
+  color: #d4af37;
 }
 
 .navbar-nav .nav-link {
-  color: #ffffff;
+  color: #fff;
   margin-right: 15px;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #dcdcdc;
-}
-
-/* Footer Styles */
-footer {
-  text-align: center;
-}
-
-footer p {
-  margin: 0;
+  color: #d4af37;
 }
 
 /* Carousel Styles */
@@ -82,23 +106,39 @@ footer p {
 
 .carousel-inner img {
   width: 100%;
-  height: 500px;
+  height: 600px;
+}
+
+.carousel-indicators li {
+  background-color: #d4af37;
+}
+
+.carousel-indicators .active {
+  background-color: #b89726;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
 }
 
 /* Card Styles */
 .card {
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
   margin-bottom: 20px;
 }
 
 .card-img-top {
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
 .card-body {
-  padding: 15px;
+  padding: 20px;
 }
 
 /* Form Styles */
@@ -107,31 +147,68 @@ footer p {
 }
 
 input, textarea {
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
   padding: 0.75rem;
   width: 100%;
 }
 
 input:focus, textarea:focus {
-  border-color: #80bdff;
+  border-color: #d4af37;
   outline: none;
+}
+
+/* About Us Page Styles */
+.about-us {
+  margin-top: 40px;
+}
+
+.about-us h1, .about-us h2 {
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.about-us .card {
+  margin-bottom: 30px;
+}
+
+.about-us .card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.about-us .card h5 {
+  font-size: 1.25rem;
+  color: #d4af37;
+}
+
+.about-us .card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.about-us .testimonial {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Buttons */
 .btn {
-  border-radius: 0.25rem;
-  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #d4af37;
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #b89726;
 }
 
 /* Pagination Styles */
@@ -144,167 +221,56 @@ input:focus, textarea:focus {
 .page-link {
   padding: 0.5rem 1rem;
   margin: 0 0.25rem;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
-  background-color: #ffffff;
-  color: #007bff;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: #d4af37;
 }
 
 .page-link:hover {
   background-color: #f8f9fa;
 }
 
-/* Map Styles */
-#map-container {
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
+/* Videos Page Styles */
+h1 {
+  color: #d4af37;
+  margin-bottom: 20px;
 }
 
-/* Style the video grid container */
-.video-grid-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Ensure the grid system works well */
-.video-grid-container .row {
-  margin: 0;
-}
-
-/* Style each video card */
 .card {
-  border: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card h5 {
+  font-size: 1.25rem;
+  color: #d4af37;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.pagination {
+  margin-top: 40px;
+}
+/* Map section styling */
+#map-container {
+  margin-top: 20px;
+  border: 2px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 400px; /* Fixed height for all cards */
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card-img-top {
-  width: 100%;
-  height: 200px; /* Fixed height for images */
-  object-fit: cover; /* Crop the image to fit the box */
-}
-
-.card-body {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Space out title and button */
-}
-
-.card-title {
-  font-size: 1rem;
-  margin-bottom: 15px; /* Space between title and button */
-}
-
-.text-center {
-  text-align: center; /* Center the button */
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-/* Style the pagination controls */
-ul.pagination {
-  justify-content: center;
-}
-
-ul.pagination li {
-  display: inline;
-}
-
-ul.pagination li a {
-  padding: 10px 15px;
-  margin: 0 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  color: #007bff;
-  text-decoration: none;
-}
-
-ul.pagination li.active a {
-  font-weight: bold;
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-ul.pagination li a:hover {
-  background-color: #f1f1f1;
-}
-
-ul.pagination li.disabled a {
-  color: #6c757d;
-  pointer-events: none;
-}
-
-
-/* Ensure the form container is centered */
-.contact-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  min-height: 100vh; /* Full viewport height */
-  padding: 1rem; /* Padding around the container */
-}
-
-/* Style for the contact form */
-.contact-form {
-  background: #f8f9fa; /* Light background color */
-  padding: 2rem; /* Padding inside the form */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  max-width: 600px; /* Max width of the form */
-  width: 100%; /* Full width within max-width */
-}
-
-/* Style for form groups */
-.form-group {
-  margin-bottom: 1rem; /* Spacing between form elements */
-}
-
-/* Style for labels */
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem; /* Spacing below the label */
-  font-weight: bold; /* Bold labels */
-}
-
-/* Style for form controls */
-.form-control {
-  width: 100%; /* Full width of the form control */
-  padding: 0.5rem; /* Padding inside the form control */
-  border: 1px solid #ced4da; /* Border color */
-  border-radius: 4px; /* Rounded corners for form controls */
-}
-
-/* Style for submit button */
-.btn-primary {
-  background-color: #007bff; /* Primary button color */
-  color: white; /* Text color for button */
-  border: none; /* Remove default border */
-  padding: 0.75rem 1.25rem; /* Padding inside the button */
-  font-size: 1rem; /* Font size for button text */
-  border-radius: 4px; /* Rounded corners for button */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Smooth color transition */
-}
-
-.btn-primary:hover {
-  background-color: #0056b3; /* Darker color on hover */
-}
-
-/* Style for error messages */
-.error-message {
-  color: red; /* Red color for error messages */
-  margin-top: 0.5rem; /* Spacing above error messages */
+/* Map section title */
+h2.text-center {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }

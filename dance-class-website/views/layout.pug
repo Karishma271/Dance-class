@@ -2,16 +2,24 @@ doctype html
 html
   head
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     // Link to Bootstrap CSS
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
     // Link to custom stylesheet
     link(rel='stylesheet', href='/css/styles.css')
+    // Google Fonts
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap')
     // JavaScript files
-    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
-    script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js')
-    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
   body
+    // Header section
     include partials/header.pug
+    // Main content area
     block content
+    // Footer section
     include partials/footer.pug
+    // Custom JavaScript file
     script(src='/js/script.js')

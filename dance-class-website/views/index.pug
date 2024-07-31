@@ -1,10 +1,120 @@
 extends layout
 
 block content
-  h1.text-center Welcome to Dance Class
-  p.text-center Learn to dance with our expert instructors!
-  include partials/carousel.pug
+  .container
+    // Carousel
+    .row
+      .col-md-12
+        .carousel.slide#carouselExampleIndicators(data-ride='carousel')
+          ol.carousel-indicators
+            li(data-target='#carouselExampleIndicators', data-slide-to='0', class='active')
+            li(data-target='#carouselExampleIndicators', data-slide-to='1')
+            li(data-target='#carouselExampleIndicators', data-slide-to='2')
+          .carousel-inner
+            .carousel-item.active
+              img.d-block.w-100(src='/images/dance1.jpg', alt='First slide')
+            .carousel-item
+              img.d-block.w-100(src='/images/dance2.jpg', alt='Second slide')
+            .carousel-item
+              img.d-block.w-100(src='/images/dance3.jpg', alt='Third slide')
+          a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+          a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
 
-  h2.text-center.mt-4 Nearby Dance Classes
-  p.text-center Find nearby dance classes using the map below.
-  include partials/map.pug
+    // Welcome Section
+    .row
+      .col-md-12
+        h1 Welcome to Our Dance Classes
+        p Learn and master various dance styles with our expert instructors. Join us today!
+
+    // Dance Styles Cards
+    .row.mt-4
+      .col-md-4
+        .card
+          img.card-img-top(src='/images/instructor1.jpeg', alt='Card image cap')
+          .card-body
+            h5.card-title Dance Style 1
+            p.card-text Description of dance style 1.
+            a.btn.btn-primary(href='#') Learn More
+      .col-md-4
+        .card
+          img.card-img-top(src='/images/instructor2.jpeg', alt='Card image cap')
+          .card-body
+            h5.card-title Dance Style 2
+            p.card-text Description of dance style 2.
+            a.btn.btn-primary(href='#') Learn More
+      .col-md-4
+        .card
+          img.card-img-top(src='/images/instructor3.jpeg', alt='Card image cap')
+          .card-body
+            h5.card-title Dance Style 3
+            p.card-text Description of dance style 3.
+            a.btn.btn-primary(href='#') Learn More
+
+    // Google Map Section
+    .row.mt-4
+      .col-md-12
+        h2.text-center Find Nearby Dance Studios
+        #map-container(style='height: 400px; width: 100%;')
+
+  // Google Maps API Script
+  script.
+    function loadGoogleMapsAPI(callback) {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=#{mapApiKey}&callback=${callback}&libraries=places`;
+        script.async = true;
+        script.defer = true;
+        script.onerror = function() {
+            console.error('Google Maps API failed to load');
+        };
+        document.body.appendChild(script);
+    }
+
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById('map-container'), {
+            center: { lat: 43.82595886205766, lng: -79.53913318308567 },
+            zoom: 15
+        });
+
+        displayNearbyDanceStudios(map);
+    }
+
+    function displayNearbyDanceStudios(map) {
+        const request = {
+            location: { lat: 43.82595886205766, lng: -79.53913318308567 },
+            radius: 2000,
+            type: 'gym', // Use 'gym' as 'DanceStudio' might not be recognized
+        };
+
+        const service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, (results, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (let i = 0; i < results.length; i++) {
+                    const place = results[i];
+                    const marker = new google.maps.Marker({
+                        position: place.geometry.location,
+                        map: map,
+                        title: place.name,
+                        label: {
+                            text: place.name,
+                            color: 'black',
+                            fontSize: '12px',
+                            fontWeight: 'bold'
+                        }
+                    });
+                    google.maps.event.addListener(marker, 'click', function() {
+                        window.location.href = `https://www.google.com/maps/search/?api=1&query=${place.name}&query_place_id=${place.place_id}`;
+                    });
+                }
+            } else {
+                console.error('Error fetching nearby dance studios:', status);
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadGoogleMapsAPI('initMap');
+    });

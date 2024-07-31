@@ -1,5 +1,20 @@
 extends layout
 
 block content
-  h1.text-center About Us
-  p.text-center Learn more about our dance classes and instructors.
+  .container.about-us
+    h1 About Us
+    p We are dedicated to providing the best dance instruction with a focus on various dance styles and techniques. Our experienced instructors ensure a fun and enriching experience for all our students.
+    .row
+      .col-md-6
+        .card
+          img.card-img-top(src='/images/dance1.jpg', alt='Card image cap')
+          .card-body
+            h5.card-title Our Mission
+            p.card-text Our mission is to spread the joy of dance and help individuals express themselves through movement.
+      .col-md-6
+        .card
+          img.card-img-top(src='/images/dance2.jpg', alt='Card image cap')
+          .card-body
+            h5.card-title Our Vision
+            p.card-text We envision a world where dance is accessible to everyone and appreciated for its cultural and artistic value.
+    
