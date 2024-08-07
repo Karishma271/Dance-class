@@ -2,16 +2,36 @@ extends layout
 
 block content
   .container.mt-4
-    h1 Contact Us
-    p We would love to hear from you! Please fill out the form below and we will get in touch with you shortly.
-    form(action='/contact', method='POST')
-      .form-group
-        label(for='name') Name
-        input.form-control#name(type='text', name='name', required=true)
-      .form-group
-        label(for='email') Email
-        input.form-control#email(type='email', name='email', required=true)
-      .form-group
-        label(for='message') Message
-        textarea.form-control#message(name='message', rows='5', required=true)
-      button.btn.btn-primary(type='submit') Submit
+    // Contact Form
+    .row
+      .col-md-8.offset-md-2
+        h1.text-center Contact Us
+        p.text-center We would love to hear from you. Please fill out the form below to get in touch with us.
+
+        form(method='POST', action='/contact')
+          .form-group
+            label(for='name') Name
+            input.form-control(type='text', id='name', name='name', placeholder='Your Name', required)
+          .form-group
+            label(for='email') Email
+            input.form-control(type='email', id='email', name='email', placeholder='Your Email', required)
+          .form-group
+            label(for='message') Message
+            textarea.form-control(id='message', name='message', rows='4', placeholder='Your Message', required)
+          button.btn.btn-pink(type='submit') Send Message
+
+    // Contact Information
+    .row.mt-4
+      .col-md-6.offset-md-3
+        h3.text-center Get In Touch
+        p.text-center If you prefer, you can also reach us through the following contact details:
+        ul.list-unstyled.text-center
+          li
+            i.fa.fa-map-marker-alt
+            | 123 Dance Street, City, Country
+          li
+            i.fa.fa-phone
+            | (123) 456-7890
+          li
+            i.fa.fa-envelope
+            | contact@feeldanceacademy.com

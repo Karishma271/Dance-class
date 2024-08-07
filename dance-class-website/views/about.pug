@@ -1,20 +1,47 @@
 extends layout
 
 block content
-  .container.about-us
-    h1 About Us
-    p We are dedicated to providing the best dance instruction with a focus on various dance styles and techniques. Our experienced instructors ensure a fun and enriching experience for all our students.
+  .container.mt-4
+    // About Section
     .row
+      .col-md-12
+        h1.text-center About Us
+        p.text-center We are dedicated to providing exceptional dance education and experiences. Our team of expert instructors is here to help you achieve your dance goals.
+
+    .row.mt-4
       .col-md-6
-        .card
-          img.card-img-top(src='/images/dance1.jpg', alt='Card image cap')
-          .card-body
-            h5.card-title Our Mission
-            p.card-text Our mission is to spread the joy of dance and help individuals express themselves through movement.
+        h2.text-center Our Mission
+        p Our mission is to inspire and nurture dancers of all ages and skill levels. We strive to create a positive and inclusive environment where everyone can express themselves through dance.
+
       .col-md-6
-        .card
-          img.card-img-top(src='/images/dance2.jpg', alt='Card image cap')
-          .card-body
-            h5.card-title Our Vision
-            p.card-text We envision a world where dance is accessible to everyone and appreciated for its cultural and artistic value.
-    
+        h2.text-center Our Team
+        p Meet our talented instructors who are passionate about dance and committed to helping you excel. Each instructor brings a unique style and expertise to our academy.
+
+    .row.mt-4
+      .col-md-12
+        h2.text-center Our Story
+        p Feel Dance Academy was founded with the vision of creating a space where dance enthusiasts could come together to learn, grow, and enjoy the art of dance. Our academy has been a hub for dance lovers, offering a wide range of classes and events.
+
+    .row.mt-4
+      .col-md-12.text-center
+        h3 Meet the Team
+        // Team Member Cards
+        .row.mt-4
+          .col-md-4
+            .card.shadow-sm
+              img.card-img-top(src='/images/instructor1.jpeg', alt='Instructor 1')
+              .card-body
+                h5.card-title Instructor 1
+                p.card-text Brief bio of Instructor 1.
+          .col-md-4
+            .card.shadow-sm
+              img.card-img-top(src='/images/instructor2.jpeg', alt='Instructor 2')
+              .card-body
+                h5.card-title Instructor 2
+                p.card-text Brief bio of Instructor 2.
+          .col-md-4
+            .card.shadow-sm
+              img.card-img-top(src='/images/instructor3.jpeg', alt='Instructor 3')
+              .card-body
+                h5.card-title Instructor 3
+                p.card-text Brief bio of Instructor 3.

@@ -1,9 +1,13 @@
-extends layout.pug
+extends layout
 
 block content
-  h1.text-center Latest Dance Videos
-  p.text-center Explore the latest dance videos from our channel.
-  .container
+  .container.mt-4
+    // Video Section
+    .row
+      .col-md-12
+        h1.text-center Latest Dance Videos
+        p.text-center Explore the latest dance videos from our channel.
+
     .row
       each video in videos
         .col-md-4

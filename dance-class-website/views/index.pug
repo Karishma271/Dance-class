@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  .container
+  .container.mt-5
     // Carousel
     .row
       .col-md-12
@@ -25,40 +25,40 @@ block content
             span.sr-only Next
 
     // Welcome Section
-    .row
-      .col-md-12
-        h1 Welcome to Our Dance Classes
-        p Learn and master various dance styles with our expert instructors. Join us today!
+    .row.my-5
+      .col-md-12.text-center
+        h1.display-4.mb-3 Welcome to Our Dance Classes
+        p.lead Learn and master various dance styles with our expert instructors. Join us today!
 
     // Dance Styles Cards
-    .row.mt-4
+    .row.my-4
       .col-md-4
-        .card
-          img.card-img-top(src='/images/instructor1.jpeg', alt='Card image cap')
+        .card.border-light.shadow-sm
+          img.card-img-top(src='/images/instructor1.jpeg', alt='Dance Style 1')
           .card-body
             h5.card-title Dance Style 1
-            p.card-text Description of dance style 1.
-            a.btn.btn-primary(href='#') Learn More
+            p.card-text Brief description of dance style 1.
+            a.btn.btn-outline-primary(href='#') Learn More
       .col-md-4
-        .card
-          img.card-img-top(src='/images/instructor2.jpeg', alt='Card image cap')
+        .card.border-light.shadow-sm
+          img.card-img-top(src='/images/instructor2.jpeg', alt='Dance Style 2')
           .card-body
             h5.card-title Dance Style 2
-            p.card-text Description of dance style 2.
-            a.btn.btn-primary(href='#') Learn More
+            p.card-text Brief description of dance style 2.
+            a.btn.btn-outline-primary(href='#') Learn More
       .col-md-4
-        .card
-          img.card-img-top(src='/images/instructor3.jpeg', alt='Card image cap')
+        .card.border-light.shadow-sm
+          img.card-img-top(src='/images/instructor3.jpeg', alt='Dance Style 3')
           .card-body
             h5.card-title Dance Style 3
-            p.card-text Description of dance style 3.
-            a.btn.btn-primary(href='#') Learn More
+            p.card-text Brief description of dance style 3.
+            a.btn.btn-outline-primary(href='#') Learn More
 
     // Google Map Section
-    .row.mt-4
+    .row.my-5
       .col-md-12
-        h2.text-center Find Nearby Dance Studios
-        #map-container(style='height: 400px; width: 100%;')
+        h2.text-center.mb-4 Find Nearby Dance Studios
+        #map-container(style='height: 400px; width: 100%; border: 1px solid #ddd;')
 
   // Google Maps API Script
   script.
@@ -86,7 +86,7 @@ block content
         const request = {
             location: { lat: 43.82595886205766, lng: -79.53913318308567 },
             radius: 2000,
-            type: 'gym', // Use 'gym' as 'DanceStudio' might not be recognized
+            type: 'gym',
         };
 
         const service = new google.maps.places.PlacesService(map);
