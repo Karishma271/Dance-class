@@ -4,7 +4,7 @@ body {
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #343a40;
 }
 
 a {
@@ -22,7 +22,7 @@ a:hover {
 
 /* Header Styles */
 header {
-  background-color: #333;
+  background-color: #004085;;
   color: #fff;
   padding: 15px 0;
 }
@@ -80,7 +80,7 @@ p.lead {
 
 .card-img-top {
   height: 200px;
-  object-fit: cover;
+  
 }
 
 .card-body {
@@ -91,14 +91,20 @@ p.lead {
   color: #333;
 }
 
-.btn-primary {
-  background-color: #ff6f61;
-  border-color: #ff6f61;
+
+/* Custom button styling */
+.btn-pink {
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  border-radius: 0; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.btn-primary:hover {
-  background-color: #e65c50;
-  border-color: #e65c50;
+/* Hover effect */
+.btn-pink:hover {
+  background-color: #0056b3; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 /* Map Styles */
@@ -109,7 +115,7 @@ p.lead {
 
 /* Footer Styles */
 footer {
-  background-color: #333;
+  background-color: #004085;;
   color: #fff;
   padding: 20px 0;
   text-align: center;
